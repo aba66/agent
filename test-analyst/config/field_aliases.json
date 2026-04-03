@@ -1,0 +1,14 @@
+{
+  "base_fields": {
+    "stage": ["阶段", "phase", "stage"],
+    "test_item": ["测试项目", "测试项", "test_item", "item", "项目"],
+    "sn": ["sn", "sn号", "序列号", "serialnumber", "serial"],
+    "test_node": ["测试节点", "节点", "testnode", "node", "station"],
+    "remark": ["备注", "remark", "comment", "note"]
+  },
+  "metric_aliases": {
+    "RCLvUnif_Res_LvUnifSubOptic": ["LvUnifSubOptic", "亮度均匀性副光学"],
+    "RCLvUnif_Res_LumEffic": ["LumEffic", "发光效率"],
+    "ANSIContrast_Res_LvContRatio": ["LvContRatio", "ansi contrast", "对比度"]
+  }
+}

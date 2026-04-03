@@ -1,0 +1,8 @@
+.tmp/
+__pycache__/
+test_analyst/__pycache__/
+*.pyc
+data/*.db
+examples/.~lock*
+output/*
+!output/.gitkeep

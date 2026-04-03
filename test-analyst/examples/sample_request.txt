@@ -1,0 +1,3 @@
+请从 Sheet1 中提取 RCLvUnif_Res_LvUnifSubOptic、RCLvUnif_Res_LumEffic、ANSIContrast_Res_LvContRatio，
+按 SN号 和 测试节点 输出 KPI 汇总表，阶段为 EVT，衰减按相对首条数据计算，
+并生成图表和 markdown 报告。

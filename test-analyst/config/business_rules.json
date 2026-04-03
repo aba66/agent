@@ -1,0 +1,18 @@
+{
+  "default_output_sheet_name": "KPI Summary",
+  "default_report_formats": ["excel", "markdown", "pdf", "docx"],
+  "decay_methods": {
+    "relative_to_first": "相对每个分组首条记录的变化率",
+    "delta_from_first": "相对每个分组首条记录的差值",
+    "delta_from_previous": "相邻两条记录的差值"
+  },
+  "template": {
+    "strict_copy": true,
+    "detect_header_within_top_rows": 20,
+    "default_sheet_name": "WG-PRO-KPI Summary"
+  },
+  "history": {
+    "default_session_limit": 20,
+    "default_task_limit": 50
+  }
+}

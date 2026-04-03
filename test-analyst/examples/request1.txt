@@ -1,0 +1,17 @@
+1. 上传了excel表格
+    a. 参考：input.xlsx
+2. 要定位的测试项，例如RCLvUnif_Res_LvUnifSubOptic，RCLvUnif_Res_LumEffic，ANSIContrast_Res_LvContRatio，这些项目来自上面表格的数据汇总这个sheet中。
+3. 衰减公式按 relative_to_first 计算，即相对每个 SN 首条记录的变化率。
+4. 阶段先按 EVT 填充。
+
+输出要求
+1. 输出一个新的excel表，参考output.xlsx这里面的WG-PRO-KPI Summary这一个sheet
+    a. 表里的内容
+        i. 第一列阶段，比如EVT,DVT（送测手动输入）
+        ii. 第二列测试项目（来自输入excel的数据汇总的测试项目）
+        iii. 第三列编号，从1到最后
+        iv. 第四列SN号
+        v. 第五列测试节点，来自输入excel的数据汇总这个子表的测试节点字段
+        vi. 第六列remark是文字描述，可选，需要人为输入，
+        vii. 第七列以及以后，就是定位的测试项的相关数据，要求和前七列要对齐。
+            1. 两列为一组，前一列是原始数据，后一列算衰减，

@@ -16,23 +16,48 @@ from pprint import pprint
 
 from langchain.tools import tool
 from langchain_deepseek import ChatDeepSeek
+from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from langchain.messages import AnyMessage, HumanMessage, SystemMessage, ToolMessage
 from typing import Literal
 from typing_extensions import Annotated, TypedDict
 
 
+"""
+export LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+export LLM_API_KEY=你的百炼API Key
+export LLM_MODEL=qwen-plus
+export LLM_ENABLE_THINKING=false
+
+export LLM_BASE_URL=https://api.deepseek.com
+export LLM_API_KEY=sk-090d98717bb741ecb7f770242743be47
+export LLM_MODEL=deepseek-chat
+```
+
+如果你使用阿里云百炼的 `qwen3.5-397b-a17b`，建议按官方推荐在结构化输出场景显式关闭 thinking：
+
+```bash
+
+export LLM_BASE_URL= https://www.autodl.art/api/v1/chat/completions
+export LLM_API_KEY= sk-5V628PiCY8J2rVHTv47Xh87FimkDyiDuqLbLgxmR3oSoUR7G
+export LLM_MODEL= qwen3.5-397b-a17b
+export LLM_ENABLE_THINKING=false
+"""
 
 
-
-# 从环境变量读取模型配置。
+# 从环境变量读取模型配置。 
+# QWEN： sk-37062bf73ef144ad999501281e4ed295  qwen-plus
+# DEEPSEEK： sk-090d98717bb741ecb7f770242743be47  deepseek-chat
 # 如果你没有提前 export 这些环境变量，这里会使用默认模型名。
-api_key = os.getenv("DEEPSEEK_API_KEY", "sk-090d98717bb741ecb7f770242743be47")
-model_name = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+api_key = os.getenv("DEEPSEEK_API_KEY", "sk-37062bf73ef144ad999501281e4ed295")
+model_name = os.getenv("DEEPSEEK_MODEL", "qwen-plus")
 
 # 初始化一个聊天模型。
 # 此时 model 只是普通模型，还不知道有哪些工具可用。
-model = ChatDeepSeek(model=model_name, api_key=api_key)
+# model = ChatDeepSeek(model=model_name, api_key=api_key)
+model = ChatOpenAI(model=model_name, 
+                   openai_api_key=api_key,
+                   openai_api_base="https://dashscope.aliyuncs.com/compatible-mode/v1")
 
 
 # Define tools

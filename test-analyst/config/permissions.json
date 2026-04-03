@@ -1,0 +1,12 @@
+{
+  "roles": {
+    "viewer": ["view_history", "download_artifacts", "view_traces"],
+    "analyst": ["run_analysis", "create_revision", "view_history", "download_artifacts", "view_traces"],
+    "admin": ["run_analysis", "create_revision", "view_history", "download_artifacts", "view_traces", "manage_config", "manage_permissions"]
+  },
+  "users": [
+    {"username": "viewer", "password": "viewer123", "role": "viewer"},
+    {"username": "analyst", "password": "analyst123", "role": "analyst"},
+    {"username": "admin", "password": "admin123", "role": "admin"}
+  ]
+}
