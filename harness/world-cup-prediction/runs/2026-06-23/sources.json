@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-06-23T07:51:33+00:00",
+  "sources": [
+    {
+      "source_id": "schedule_guardian_2026_06_22",
+      "name": "The Guardian 世界杯 6 月 22 日赛程导览",
+      "kind": "schedule",
+      "url": "https://www.theguardian.com/football/2026/jun/22/how-to-watch-world-cup-norway-senegal-australia-austria",
+      "fetched_at": "2026-06-23T07:49:08+00:00",
+      "notes": "用于核对北美 6 月 22 日四场比赛、开球时间和场馆；换算后均落在北京时间 2026-06-23。"
+    },
+    {
+      "source_id": "schedule_roadtrips_full",
+      "name": "Roadtrips 2026 World Cup full schedule",
+      "kind": "schedule",
+      "url": "https://www.roadtrips.com/world-cup/2026-world-cup-packages/schedule/",
+      "fetched_at": "2026-06-23T07:49:08+00:00",
+      "notes": "用于交叉核对比赛编号、分组、场馆和北美赛程。"
+    },
+    {
+      "source_id": "opta_argentina_austria",
+      "name": "Opta Analyst Argentina vs Austria Prediction",
+      "kind": "opta-prediction",
+      "url": "https://theanalyst.com/articles/argentina-vs-austria-prediction-world-cup-2026-match-preview",
+      "fetched_at": "2026-06-23T07:49:08+00:00",
+      "notes": "Opta 25,000 次赛前模拟：阿根廷 65.4%，平 20.7%，奥地利 13.9%。"
+    },
+    {
+      "source_id": "opta_france_iraq",
+      "name": "Opta Analyst France vs Iraq Prediction",
+      "kind": "opta-prediction",
+      "url": "https://theanalyst.com/articles/france-vs-iraq-prediction-world-cup-2026-match-preview",
+      "fetched_at": "2026-06-23T07:49:08+00:00",
+      "notes": "Opta 25,000 次赛前模拟：法国 88.8%，平 7.9%，伊拉克 3.4%。"
+    },
+    {
+      "source_id": "opta_norway_senegal",
+      "name": "Opta Analyst Norway vs Senegal Prediction",
+      "kind": "opta-prediction",
+      "url": "https://theanalyst.com/articles/norway-vs-senegal-prediction-world-cup-2026-match-preview",
+      "fetched_at": "2026-06-23T07:49:08+00:00",
+      "notes": "Opta 25,000 次赛前模拟：挪威 44.7%，平 24.9%，塞内加尔 30.5%。"
+    },
+    {
+      "source_id": "opta_jordan_algeria",
+      "name": "Opta Analyst Jordan vs Algeria Prediction",
+      "kind": "opta-prediction",
+      "url": "https://theanalyst.com/articles/jordan-vs-algeria-prediction-world-cup-2026-match-preview",
+      "fetched_at": "2026-06-23T07:49:08+00:00",
+      "notes": "Opta 25,000 次赛前模拟：约旦 17.6%，平 21.7%，阿尔及利亚 60.7%。"
+    }
+  ]
+}

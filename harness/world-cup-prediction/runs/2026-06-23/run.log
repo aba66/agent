@@ -1,0 +1,6 @@
+2026-06-23 15:49:08,711 INFO Starting prediction run date=2026-06-23 source=sample timezone=Asia/Shanghai
+2026-06-23 15:49:08,712 INFO Loaded 4 match records from sample
+2026-06-23 15:49:08,712 INFO Loaded 0 lesson lines
+2026-06-23 15:49:08,712 INFO Using provider=openai-compatible
+2026-06-23 15:49:08,712 INFO Using daily batch generation for 4 matches
+2026-06-23 15:51:33,403 INFO Prediction run complete: /home/xiangdejie/projects/agent/harness/world-cup-prediction/runs/2026-06-23

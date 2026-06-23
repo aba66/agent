@@ -1,0 +1,241 @@
+{
+  "date": "2026-06-23",
+  "matches": [
+    {
+      "match_id": "wc2026-043-arg-aut",
+      "date": "2026-06-23",
+      "kickoff_local": "2026-06-23T01:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "阿根廷",
+      "away_team": "奥地利",
+      "venue": "Dallas Stadium / AT&T Stadium, Arlington",
+      "stage": "J 组",
+      "status": "pre_match",
+      "home_score": null,
+      "away_score": null,
+      "sources": [
+        "schedule_guardian_2026_06_22",
+        "schedule_roadtrips_full",
+        "opta_argentina_austria"
+      ],
+      "facts": {
+        "tactical_edge": "home",
+        "tactical_notes": "阿根廷首战 3-0 击败阿尔及利亚，梅西状态火热；奥地利高强度压迫有威胁，但对南美球队的世界杯历史战绩并不占优。",
+        "opta_prediction": {
+          "source_id": "opta_argentina_austria",
+          "favorite": "阿根廷",
+          "home_win": 0.654,
+          "draw": 0.207,
+          "away_win": 0.139
+        },
+        "public_predictions": [
+          {
+            "source_id": "opta_argentina_austria",
+            "home_win": 0.654,
+            "draw": 0.207,
+            "away_win": 0.139
+          }
+        ],
+        "team_profiles": {
+          "阿根廷": {
+            "recent_form": [
+              "W"
+            ],
+            "goals_for": 3,
+            "goals_against": 0,
+            "style": "以梅西为核心的高质量进攻，能在不长时间控球的情况下制造决定性机会",
+            "news": "Opta 文章提到斯卡洛尼可能做少量调整，纳韦尔-莫利纳已从轻微肌肉伤势中恢复。",
+            "major_absences": 0
+          },
+          "奥地利": {
+            "recent_form": [
+              "W"
+            ],
+            "goals_for": 3,
+            "goals_against": 1,
+            "style": "朗尼克体系下的高强度压迫和定位球威胁",
+            "news": "阿拉巴、波施和舍普夫单独训练，赛前存在出场疑问。",
+            "major_absences": 1
+          }
+        }
+      }
+    },
+    {
+      "match_id": "wc2026-042-fra-irq",
+      "date": "2026-06-23",
+      "kickoff_local": "2026-06-23T05:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "法国",
+      "away_team": "伊拉克",
+      "venue": "Philadelphia Stadium / Lincoln Financial Field, Philadelphia",
+      "stage": "I 组",
+      "status": "pre_match",
+      "home_score": null,
+      "away_score": null,
+      "sources": [
+        "schedule_guardian_2026_06_22",
+        "schedule_roadtrips_full",
+        "opta_france_iraq"
+      ],
+      "facts": {
+        "tactical_edge": "home",
+        "tactical_notes": "法国拥有姆巴佩、奥利塞等多样化进攻资源，面对大概率低位防守的伊拉克仍有明显创造力优势。",
+        "opta_prediction": {
+          "source_id": "opta_france_iraq",
+          "favorite": "法国",
+          "home_win": 0.888,
+          "draw": 0.079,
+          "away_win": 0.034
+        },
+        "public_predictions": [
+          {
+            "source_id": "opta_france_iraq",
+            "home_win": 0.888,
+            "draw": 0.079,
+            "away_win": 0.034
+          }
+        ],
+        "team_profiles": {
+          "法国": {
+            "recent_form": [
+              "W"
+            ],
+            "goals_for": 3,
+            "goals_against": 1,
+            "style": "强个人能力、边路与肋部创造、前场可轮换深度极强",
+            "news": "姆巴佩预计迎来法国队第 100 次出场；德尚可能调整锋线组合。",
+            "major_absences": 0
+          },
+          "伊拉克": {
+            "recent_form": [
+              "L"
+            ],
+            "goals_for": 1,
+            "goals_against": 4,
+            "style": "弱势方低位防守，依靠侯赛因等前场球员寻找反击机会",
+            "news": "首战 1-4 不敌挪威，面对法国仍被视为巨大挑战。",
+            "major_absences": 0
+          }
+        }
+      }
+    },
+    {
+      "match_id": "wc2026-041-nor-sen",
+      "date": "2026-06-23",
+      "kickoff_local": "2026-06-23T08:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "挪威",
+      "away_team": "塞内加尔",
+      "venue": "New York New Jersey Stadium / MetLife Stadium, East Rutherford",
+      "stage": "I 组",
+      "status": "pre_match",
+      "home_score": null,
+      "away_score": null,
+      "sources": [
+        "schedule_guardian_2026_06_22",
+        "schedule_roadtrips_full",
+        "opta_norway_senegal"
+      ],
+      "facts": {
+        "tactical_edge": "home",
+        "tactical_notes": "挪威首战 4-1 击败伊拉克，哈兰德和厄德高连线威胁明确；塞内加尔反击火力仍可能制造高波动。",
+        "opta_prediction": {
+          "source_id": "opta_norway_senegal",
+          "favorite": "挪威",
+          "home_win": 0.447,
+          "draw": 0.249,
+          "away_win": 0.305
+        },
+        "public_predictions": [
+          {
+            "source_id": "opta_norway_senegal",
+            "home_win": 0.447,
+            "draw": 0.249,
+            "away_win": 0.305
+          }
+        ],
+        "team_profiles": {
+          "挪威": {
+            "recent_form": [
+              "W"
+            ],
+            "goals_for": 4,
+            "goals_against": 1,
+            "style": "厄德高组织推进，哈兰德终结，直塞和身后球威胁突出",
+            "news": "首战大胜后出线概率大幅提升，哈兰德连续国家队正式比赛进球。",
+            "major_absences": 0
+          },
+          "塞内加尔": {
+            "recent_form": [
+              "L"
+            ],
+            "goals_for": 1,
+            "goals_against": 3,
+            "style": "前场速度和转换能力强，但世界杯连续多场未能零封",
+            "news": "首战 1-3 不敌法国，仍需要积极结果维持出线主动权。",
+            "major_absences": 0
+          }
+        }
+      }
+    },
+    {
+      "match_id": "wc2026-044-jor-alg",
+      "date": "2026-06-23",
+      "kickoff_local": "2026-06-23T11:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "约旦",
+      "away_team": "阿尔及利亚",
+      "venue": "San Francisco Bay Area Stadium / Levi's Stadium, Santa Clara",
+      "stage": "J 组",
+      "status": "pre_match",
+      "home_score": null,
+      "away_score": null,
+      "sources": [
+        "schedule_guardian_2026_06_22",
+        "schedule_roadtrips_full",
+        "opta_jordan_algeria"
+      ],
+      "facts": {
+        "tactical_edge": "away",
+        "tactical_notes": "两队首战均失利，约旦首秀表现有亮点但近期不胜；阿尔及利亚预计让马赫雷斯承担更多创造任务。",
+        "opta_prediction": {
+          "source_id": "opta_jordan_algeria",
+          "favorite": "阿尔及利亚",
+          "home_win": 0.176,
+          "draw": 0.217,
+          "away_win": 0.607
+        },
+        "public_predictions": [
+          {
+            "source_id": "opta_jordan_algeria",
+            "home_win": 0.176,
+            "draw": 0.217,
+            "away_win": 0.607
+          }
+        ],
+        "team_profiles": {
+          "约旦": {
+            "recent_form": [
+              "L"
+            ],
+            "goals_for": 1,
+            "goals_against": 3,
+            "style": "防守韧性和个人突破有亮点，但整体终结效率需要提升",
+            "news": "Opta 指出约旦近 6 场各项赛事不胜，首战 1-3 不敌奥地利。",
+            "major_absences": 0
+          },
+          "阿尔及利亚": {
+            "recent_form": [
+              "L"
+            ],
+            "goals_for": 0,
+            "goals_against": 3,
+            "style": "依赖马赫雷斯等攻击手在肋部和边路创造机会",
+            "news": "首战不敌阿根廷后需要抢分，马赫雷斯预计会首发承担组织与终结责任。",
+            "major_absences": 0
+          }
+        }
+      }
+    }
+  ]
+}
