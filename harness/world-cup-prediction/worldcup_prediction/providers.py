@@ -341,6 +341,9 @@ class OpenAICompatibleProvider(BaseLLMProvider):
         wire_api: str = "chat_completions",
         timeout: int = 180,
         user_agent: str = DEFAULT_USER_AGENT,
+        backend: str = "openai",
+        reasoning_effort: str | None = None,
+        supports_daily_batch: bool = True,
     ):
         self.api_key = api_key
         self.model = model
@@ -348,6 +351,9 @@ class OpenAICompatibleProvider(BaseLLMProvider):
         self.wire_api = wire_api
         self.timeout = timeout
         self.user_agent = user_agent
+        self.backend = backend
+        self.reasoning_effort = reasoning_effort
+        self.supports_daily_batch = supports_daily_batch
 
     def generate_role_analysis(
         self,
@@ -431,6 +437,21 @@ class OpenAICompatibleProvider(BaseLLMProvider):
         return ProviderResult(payload=parsed, raw_text=text, parse_error=parse_error)
 
     def _complete_json_responses(self, prompt: str) -> ProviderResult:
+        request = self._request("/responses", self._responses_body(prompt))
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            error_text = exc.read().decode("utf-8", "ignore")
+            raise ProviderError(f"HTTP {exc.code}: {error_text or exc.reason}") from exc
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+            raise ProviderError(str(exc)) from exc
+
+        text = extract_responses_text(payload)
+        parsed, parse_error = parse_json_object(text)
+        return ProviderResult(payload=parsed, raw_text=text, parse_error=parse_error)
+
+    def _responses_body(self, prompt: str) -> dict[str, Any]:
         body = {
             "model": self.model,
             "input": [
@@ -450,19 +471,9 @@ class OpenAICompatibleProvider(BaseLLMProvider):
             ],
             "text": {"format": {"type": "json_object"}},
         }
-        request = self._request("/responses", body)
-        try:
-            with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                payload = json.loads(response.read().decode("utf-8"))
-        except urllib.error.HTTPError as exc:
-            error_text = exc.read().decode("utf-8", "ignore")
-            raise ProviderError(f"HTTP {exc.code}: {error_text or exc.reason}") from exc
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-            raise ProviderError(str(exc)) from exc
-
-        text = extract_responses_text(payload)
-        parsed, parse_error = parse_json_object(text)
-        return ProviderResult(payload=parsed, raw_text=text, parse_error=parse_error)
+        if self.reasoning_effort:
+            body["reasoning"] = {"effort": self.reasoning_effort}
+        return body
 
 
 def parse_json_object(text: str) -> tuple[dict[str, Any], str | None]:
@@ -588,6 +599,10 @@ def get_provider(name: str = "auto") -> BaseLLMProvider:
             wire_api = first_config_value(local_config, "WCP_OPENAI_WIRE_API", "OPENAI_WIRE_API") or default_wire_api
         timeout = int(first_config_value(local_config, "WCP_OPENAI_TIMEOUT", "OPENAI_TIMEOUT") or "180")
         user_agent = first_config_value(local_config, "WCP_OPENAI_USER_AGENT", "OPENAI_USER_AGENT") or DEFAULT_USER_AGENT
+        if backend == "ddss":
+            reasoning_effort = "high"
+        else:
+            reasoning_effort = first_config_value(local_config, "WCP_OPENAI_REASONING_EFFORT", "OPENAI_REASONING_EFFORT")
         return OpenAICompatibleProvider(
             api_key=api_key,
             model=model,
@@ -595,4 +610,7 @@ def get_provider(name: str = "auto") -> BaseLLMProvider:
             wire_api=wire_api,
             timeout=timeout,
             user_agent=user_agent,
+            backend=backend,
+            reasoning_effort=reasoning_effort,
+            supports_daily_batch=backend != "ddss",
         )

@@ -7,8 +7,8 @@ from .agents import AgentOrchestrator, MatchAnalysisResult, build_prediction_inp
 from .data_sources import get_data_source
 from .io_utils import ensure_dir, project_root_from_package, write_json, write_text
 from .ledger import LedgerManager, ReviewSummary
-from .models import FinalPrediction, RoleAnalysis, utc_now_iso
-from .providers import get_provider
+from .models import Citation, FinalPrediction, RoleAnalysis, utc_now_iso
+from .providers import ProviderError, get_provider
 from .reports import render_daily_report
 
 
@@ -50,9 +50,14 @@ def run_predict(
     else:
         orchestrator = AgentOrchestrator(provider)
         results = []
+        logger.info("Using per-match generation for %d matches; daily report will be aggregated locally", len(snapshot.matches))
         for match in snapshot.matches:
             logger.info("Analyzing match_id=%s %s vs %s", match.match_id, match.home_team, match.away_team)
-            result = orchestrator.analyze_match(match, source_dicts, lessons_text)
+            try:
+                result = orchestrator.analyze_match(match, source_dicts, lessons_text)
+            except (ProviderError, ValueError) as exc:
+                logger.exception("Analysis failed for match_id=%s; continuing with remaining matches", match.match_id)
+                result = _failed_match_result(match, exc)
             results.append(result)
 
     for result in results:
@@ -121,6 +126,36 @@ def _batch_payload_to_results(matches, payload, raw_text: str, parse_error: str 
     return results
 
 
+def _failed_match_result(match, exc: Exception) -> MatchAnalysisResult:
+    error_text = str(exc)
+    role = RoleAnalysis(
+        match_id=match.match_id,
+        role="error",
+        predicted_outcome="DRAW",
+        conclusion=f"该场模型调用失败：{error_text}",
+        confidence="low",
+        key_evidence=[],
+        risks=[error_text],
+        citations=[Citation(source_id=source_id, note="原始比赛输入来源。") for source_id in match.sources],
+        one_line="模型调用失败，未形成有效角色分析。",
+        parse_error=error_text,
+    )
+    prediction = FinalPrediction(
+        match_id=match.match_id,
+        predicted_outcome="DRAW",
+        confidence="low",
+        key_evidence=["该场 DDSS 调用失败，保留占位结果以便日报继续生成。"],
+        max_risk=error_text,
+        role_summaries={"error": "模型调用失败，未形成有效预测。"},
+        agreements=[],
+        conflicts=[],
+        decision="该场模型调用失败；占位为平局，不应作为有效预测使用。",
+        citations=[Citation(source_id=source_id, note="原始比赛输入来源。") for source_id in match.sources],
+        parse_error=error_text,
+    )
+    return MatchAnalysisResult(match=match, role_analyses=[role], final_prediction=prediction)
+
+
 def run_review(date: str, results_path: Path, project_root: Path | None = None) -> ReviewSummary:
     root = project_root or project_root_from_package()
     return LedgerManager(root).review(date, results_path)
@@ -145,7 +180,7 @@ def _setup_logger(path: Path) -> logging.Logger:
     logger.handlers.clear()
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
-    file_handler = logging.FileHandler(path, encoding="utf-8")
+    file_handler = logging.FileHandler(path, mode="w", encoding="utf-8")
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
     stream_handler = logging.StreamHandler()

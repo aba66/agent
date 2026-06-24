@@ -1,0 +1,293 @@
+{
+  "sources": [
+    {
+      "source_id": "schedule_roadtrips_2026_06_24",
+      "name": "Roadtrips 2026 World Cup full schedule",
+      "kind": "schedule",
+      "url": "https://www.roadtrips.com/world-cup/2026-world-cup-packages/schedule/",
+      "notes": "官方赛程转写；6月24日北美当地比赛换算为北京时间6月25日。"
+    },
+    {
+      "source_id": "group_a_cbs_guardian_fox",
+      "name": "Group A results and scenarios",
+      "kind": "results-standings",
+      "url": "https://www.cbssports.com/soccer/news/mexico-vs-south-korea-live-updates-world-cup-2026-score-result/live/",
+      "notes": "墨西哥2胜0失球已锁定A组头名；韩国首战2-1捷克、次战0-1墨西哥；捷克1-1南非。"
+    },
+    {
+      "source_id": "group_b_concacaf_fox",
+      "name": "Canada-Switzerland Group B context",
+      "kind": "standings-news",
+      "url": "https://www.concacaf.com/news/canada-meets-switzerland-for-top-of-the-group",
+      "notes": "加拿大6-0卡塔尔后与瑞士争B组头名；加拿大平或胜即可锁定头名，Ismael Kone伤缺。"
+    },
+    {
+      "source_id": "group_c_sportingnews_as_guardian",
+      "name": "Group C standings and Scotland-Brazil context",
+      "kind": "standings-news",
+      "url": "https://www.sportingnews.com/us/soccer/news/world-cup-group-c-standings-results-table-2026-brazil/c79b62229f6707e1d2775b24",
+      "notes": "巴西4分净胜+3、摩洛哥4分净胜+1、苏格兰3分、海地0分已出局；苏格兰战平或取胜可确保晋级。"
+    },
+    {
+      "source_id": "fifa_format_roadtrips",
+      "name": "2026 World Cup group advancement format",
+      "kind": "format",
+      "url": "https://www.roadtrips.com/world-cup/2026-world-cup-packages/schedule/",
+      "notes": "每组前两名和8个成绩最好的小组第三晋级32强。"
+    }
+  ],
+  "matches": [
+    {
+      "match_id": "wc2026-bjt0625-01-sui-can",
+      "date": "2026-06-25",
+      "kickoff_local": "2026-06-25T03:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "瑞士",
+      "away_team": "加拿大",
+      "venue": "BC Place, Vancouver",
+      "stage": "Group B",
+      "status": "scheduled",
+      "sources": ["schedule_roadtrips_2026_06_24", "group_b_concacaf_fox", "fifa_format_roadtrips"],
+      "facts": {
+        "group_context": "B组末轮争头名。加拿大4分且净胜球优势大，平或胜可锁定小组第一；瑞士4分，取胜大概率小组第一。",
+        "team_profiles": {
+          "瑞士": {
+            "ranking": 17,
+            "points": 4,
+            "goal_difference": 3,
+            "recent_form": ["D", "W"],
+            "goals_for": 5,
+            "goals_against": 2,
+            "style": "结构稳定、压迫和定位球质量高，欧洲强队经验丰富。",
+            "news": "次战4-1击败波黑，进攻效率回暖。"
+          },
+          "加拿大": {
+            "ranking": 27,
+            "points": 4,
+            "goal_difference": 6,
+            "recent_form": ["D", "W"],
+            "goals_for": 7,
+            "goals_against": 1,
+            "style": "主场速度与纵深冲击强，Davies、David、Larin带来高转换威胁。",
+            "news": "6-0大胜卡塔尔，Jonathan David上演帽子戏法；中场Ismael Kone重伤缺阵。"
+          }
+        },
+        "public_predictions": [
+          {"source_id": "worldcup_prediction_prior", "home_win": 0.36, "draw": 0.31, "away_win": 0.33, "favorite": "瑞士小优但接近平衡"}
+        ],
+        "tactical_edge": "draw",
+        "tactical_notes": "瑞士整体性和定位球更稳，加拿大主场与反击速度更强；加拿大接受平局即可头名，末段可能更保守。"
+      }
+    },
+    {
+      "match_id": "wc2026-bjt0625-02-bih-qat",
+      "date": "2026-06-25",
+      "kickoff_local": "2026-06-25T03:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "波黑",
+      "away_team": "卡塔尔",
+      "venue": "Lumen Field, Seattle",
+      "stage": "Group B",
+      "status": "scheduled",
+      "sources": ["schedule_roadtrips_2026_06_24", "group_b_concacaf_fox", "fifa_format_roadtrips"],
+      "facts": {
+        "group_context": "B组末轮。两队均约1分，必须争胜才有较现实的第三名晋级希望。",
+        "team_profiles": {
+          "波黑": {
+            "ranking": 71,
+            "points": 1,
+            "goal_difference": -3,
+            "recent_form": ["D", "L"],
+            "goals_for": 2,
+            "goals_against": 5,
+            "style": "身体对抗和高点有优势，但防线横移和转换回防暴露问题。",
+            "news": "次战1-4负于瑞士，后防承压明显。"
+          },
+          "卡塔尔": {
+            "ranking": 51,
+            "points": 1,
+            "goal_difference": -6,
+            "recent_form": ["D", "L"],
+            "goals_for": 1,
+            "goals_against": 7,
+            "style": "倾向控球和短传组织，但面对高压时失误偏多。",
+            "news": "0-6负于加拿大且有两张红牌，士气和可用阵容都受损。"
+          }
+        },
+        "public_predictions": [
+          {"source_id": "worldcup_prediction_prior", "home_win": 0.42, "draw": 0.28, "away_win": 0.30, "favorite": "波黑"}
+        ],
+        "tactical_edge": "home",
+        "tactical_notes": "双方都必须主动，波黑的高点和二点球更适合直接制造机会；卡塔尔若控球被压迫，防线身后空间风险大。"
+      }
+    },
+    {
+      "match_id": "wc2026-bjt0625-03-sco-bra",
+      "date": "2026-06-25",
+      "kickoff_local": "2026-06-25T06:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "苏格兰",
+      "away_team": "巴西",
+      "venue": "Hard Rock Stadium, Miami",
+      "stage": "Group C",
+      "status": "scheduled",
+      "sources": ["schedule_roadtrips_2026_06_24", "group_c_sportingnews_as_guardian", "fifa_format_roadtrips"],
+      "facts": {
+        "group_context": "C组末轮。巴西4分净胜+3、摩洛哥4分净胜+1、苏格兰3分；苏格兰战平或取胜可确保晋级，输球则多半等待小组第三排名。",
+        "team_profiles": {
+          "苏格兰": {
+            "ranking": 43,
+            "points": 3,
+            "goal_difference": 0,
+            "recent_form": ["W", "L"],
+            "goals_for": 1,
+            "goals_against": 1,
+            "style": "中低位防守、身体对抗和定位球强，进攻更多依赖边路和二点球。",
+            "news": "1-0胜海地、0-1负摩洛哥；外界讨论是否需要更主动。"
+          },
+          "巴西": {
+            "ranking": 5,
+            "points": 4,
+            "goal_difference": 3,
+            "recent_form": ["D", "W"],
+            "goals_for": 4,
+            "goals_against": 1,
+            "style": "个人能力、边路爆点和禁区前沿组合强，面对低位防守有持续创造力。",
+            "news": "1-1平摩洛哥、3-0胜海地，暂列小组第一。"
+          }
+        },
+        "public_predictions": [
+          {"source_id": "worldcup_prediction_prior", "home_win": 0.16, "draw": 0.25, "away_win": 0.59, "favorite": "巴西"}
+        ],
+        "tactical_edge": "away",
+        "tactical_notes": "苏格兰会优先守住平局，但巴西边路一对一和中路小范围能力更强；若早段破门，比赛会倾向巴西控制。"
+      }
+    },
+    {
+      "match_id": "wc2026-bjt0625-04-mar-hai",
+      "date": "2026-06-25",
+      "kickoff_local": "2026-06-25T06:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "摩洛哥",
+      "away_team": "海地",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "stage": "Group C",
+      "status": "scheduled",
+      "sources": ["schedule_roadtrips_2026_06_24", "group_c_sportingnews_as_guardian", "fifa_format_roadtrips"],
+      "facts": {
+        "group_context": "C组末轮。摩洛哥4分净胜+1，仍有争小组第一机会；海地0分已出局。",
+        "team_profiles": {
+          "摩洛哥": {
+            "ranking": 8,
+            "points": 4,
+            "goal_difference": 1,
+            "recent_form": ["D", "W"],
+            "goals_for": 2,
+            "goals_against": 1,
+            "style": "防守组织强、边翼卫和转换进攻质量高，淘汰赛经验充足。",
+            "news": "1-1平巴西、1-0胜苏格兰，防守稳定。"
+          },
+          "海地": {
+            "ranking": 83,
+            "points": 0,
+            "goal_difference": -4,
+            "recent_form": ["L", "L"],
+            "goals_for": 0,
+            "goals_against": 4,
+            "style": "依赖反击和个人冲刺，但组织推进与防线稳定性不足。",
+            "news": "0-1负苏格兰、0-3负巴西，已经出局且尚未进球。"
+          }
+        },
+        "public_predictions": [
+          {"source_id": "worldcup_prediction_prior", "home_win": 0.66, "draw": 0.21, "away_win": 0.13, "favorite": "摩洛哥"}
+        ],
+        "tactical_edge": "home",
+        "tactical_notes": "摩洛哥需要净胜球争头名，动机会比已出局的海地更强；海地若早早丢球，防线可能继续被拉开。"
+      }
+    },
+    {
+      "match_id": "wc2026-bjt0625-05-cze-mex",
+      "date": "2026-06-25",
+      "kickoff_local": "2026-06-25T09:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "捷克",
+      "away_team": "墨西哥",
+      "venue": "Estadio Azteca, Mexico City",
+      "stage": "Group A",
+      "status": "scheduled",
+      "sources": ["schedule_roadtrips_2026_06_24", "group_a_cbs_guardian_fox", "fifa_format_roadtrips"],
+      "facts": {
+        "group_context": "A组末轮。墨西哥6分且对韩国有胜负关系优势，已经锁定小组第一；捷克1分，必须争胜才有第三名晋级希望。",
+        "team_profiles": {
+          "捷克": {
+            "ranking": 44,
+            "points": 1,
+            "goal_difference": -1,
+            "recent_form": ["L", "D"],
+            "goals_for": 2,
+            "goals_against": 3,
+            "style": "身体强、定位球和传中威胁大，但面对速度冲击时转身慢。",
+            "news": "首战1-2负韩国，次战1-1南非，晋级压力大。"
+          },
+          "墨西哥": {
+            "ranking": 15,
+            "points": 6,
+            "goal_difference": 3,
+            "recent_form": ["W", "W"],
+            "goals_for": 3,
+            "goals_against": 0,
+            "style": "主场氛围强、控球和边路推进稳定，防守两场零封。",
+            "news": "2-0胜南非、1-0胜韩国，已锁定A组第一。"
+          }
+        },
+        "public_predictions": [
+          {"source_id": "worldcup_prediction_prior", "home_win": 0.25, "draw": 0.31, "away_win": 0.44, "favorite": "墨西哥"}
+        ],
+        "tactical_edge": "away",
+        "tactical_notes": "墨西哥可能轮换但仍有主场和防守优势；捷克必须主动压上，反而会给墨西哥反击空间。"
+      }
+    },
+    {
+      "match_id": "wc2026-bjt0625-06-rsa-kor",
+      "date": "2026-06-25",
+      "kickoff_local": "2026-06-25T09:00:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "home_team": "南非",
+      "away_team": "韩国",
+      "venue": "Estadio BBVA, Monterrey",
+      "stage": "Group A",
+      "status": "scheduled",
+      "sources": ["schedule_roadtrips_2026_06_24", "group_a_cbs_guardian_fox", "fifa_format_roadtrips"],
+      "facts": {
+        "group_context": "A组末轮。韩国3分，赢球基本锁定第二，平局也有较大机会；南非1分，需要赢球才有晋级希望。",
+        "team_profiles": {
+          "南非": {
+            "ranking": 61,
+            "points": 1,
+            "goal_difference": -2,
+            "recent_form": ["L", "D"],
+            "goals_for": 1,
+            "goals_against": 3,
+            "style": "防守反击和体能冲刺有威胁，但阵地战创造力有限。",
+            "news": "0-2负墨西哥、1-1平捷克，末轮必须取胜。"
+          },
+          "韩国": {
+            "ranking": 22,
+            "points": 3,
+            "goal_difference": 0,
+            "recent_form": ["W", "L"],
+            "goals_for": 2,
+            "goals_against": 2,
+            "style": "边路速度、前场压迫和转换进攻强，孙兴慜等核心能制造关键球。",
+            "news": "2-1逆转捷克、0-1负墨西哥，仍处于第二名有利位置。"
+          }
+        },
+        "public_predictions": [
+          {"source_id": "worldcup_prediction_prior", "home_win": 0.24, "draw": 0.30, "away_win": 0.46, "favorite": "韩国"}
+        ],
+        "tactical_edge": "away",
+        "tactical_notes": "南非必须压出来争胜，韩国更适合打转换；若韩国先入球，南非追分风险会进一步扩大。"
+      }
+    }
+  ]
+}

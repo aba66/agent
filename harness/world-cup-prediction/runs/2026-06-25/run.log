@@ -1,0 +1,12 @@
+2026-06-24 12:50:20,347 INFO Starting prediction run date=2026-06-25 source=sample timezone=Asia/Shanghai
+2026-06-24 12:50:20,347 INFO Loaded 6 match records from local-json
+2026-06-24 12:50:20,347 INFO Loaded 0 lesson lines
+2026-06-24 12:50:20,348 INFO Using provider=openai-compatible
+2026-06-24 12:50:20,348 INFO Using per-match generation for 6 matches; daily report will be aggregated locally
+2026-06-24 12:50:20,348 INFO Analyzing match_id=wc2026-bjt0625-01-sui-can 瑞士 vs 加拿大
+2026-06-24 12:54:33,935 INFO Analyzing match_id=wc2026-bjt0625-02-bih-qat 波黑 vs 卡塔尔
+2026-06-24 13:00:49,494 INFO Analyzing match_id=wc2026-bjt0625-03-sco-bra 苏格兰 vs 巴西
+2026-06-24 13:06:10,549 INFO Analyzing match_id=wc2026-bjt0625-04-mar-hai 摩洛哥 vs 海地
+2026-06-24 13:12:01,171 INFO Analyzing match_id=wc2026-bjt0625-05-cze-mex 捷克 vs 墨西哥
+2026-06-24 13:17:28,261 INFO Analyzing match_id=wc2026-bjt0625-06-rsa-kor 南非 vs 韩国
+2026-06-24 13:22:34,648 INFO Prediction run complete: /home/xiangdejie/projects/agent/harness/world-cup-prediction/runs/2026-06-25

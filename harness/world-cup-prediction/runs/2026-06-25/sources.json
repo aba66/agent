@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-24T05:22:34+00:00",
+  "sources": [
+    {
+      "source_id": "schedule_roadtrips_2026_06_24",
+      "name": "Roadtrips 2026 World Cup full schedule",
+      "kind": "schedule",
+      "url": "https://www.roadtrips.com/world-cup/2026-world-cup-packages/schedule/",
+      "fetched_at": "2026-06-24T04:50:20+00:00",
+      "notes": "官方赛程转写；6月24日北美当地比赛换算为北京时间6月25日。"
+    },
+    {
+      "source_id": "group_a_cbs_guardian_fox",
+      "name": "Group A results and scenarios",
+      "kind": "results-standings",
+      "url": "https://www.cbssports.com/soccer/news/mexico-vs-south-korea-live-updates-world-cup-2026-score-result/live/",
+      "fetched_at": "2026-06-24T04:50:20+00:00",
+      "notes": "墨西哥2胜0失球已锁定A组头名；韩国首战2-1捷克、次战0-1墨西哥；捷克1-1南非。"
+    },
+    {
+      "source_id": "group_b_concacaf_fox",
+      "name": "Canada-Switzerland Group B context",
+      "kind": "standings-news",
+      "url": "https://www.concacaf.com/news/canada-meets-switzerland-for-top-of-the-group",
+      "fetched_at": "2026-06-24T04:50:20+00:00",
+      "notes": "加拿大6-0卡塔尔后与瑞士争B组头名；加拿大平或胜即可锁定头名，Ismael Kone伤缺。"
+    },
+    {
+      "source_id": "group_c_sportingnews_as_guardian",
+      "name": "Group C standings and Scotland-Brazil context",
+      "kind": "standings-news",
+      "url": "https://www.sportingnews.com/us/soccer/news/world-cup-group-c-standings-results-table-2026-brazil/c79b62229f6707e1d2775b24",
+      "fetched_at": "2026-06-24T04:50:20+00:00",
+      "notes": "巴西4分净胜+3、摩洛哥4分净胜+1、苏格兰3分、海地0分已出局；苏格兰战平或取胜可确保晋级。"
+    },
+    {
+      "source_id": "fifa_format_roadtrips",
+      "name": "2026 World Cup group advancement format",
+      "kind": "format",
+      "url": "https://www.roadtrips.com/world-cup/2026-world-cup-packages/schedule/",
+      "fetched_at": "2026-06-24T04:50:20+00:00",
+      "notes": "每组前两名和8个成绩最好的小组第三晋级32强。"
+    }
+  ]
+}

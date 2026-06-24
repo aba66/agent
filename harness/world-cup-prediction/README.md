@@ -94,6 +94,8 @@ It can read:
 The DDSS default is `gpt-5.5` on `https://code.ddsst.online/v1`. Qwen/AutoDL defaults are `Qwen3.5-397B-A17B` on `https://www.autodl.art/api/v1`; put that config in `~/.config/worldcup_prediction/qwen.env` and select it explicitly with `--llm-provider qwen`.
 The harness does not fall back to deterministic mock in default mode. Use `--llm-provider mock` only when you explicitly want a fully offline deterministic run, for example in tests.
 
+When the active backend is DDSS, the harness calls DDSS one match at a time and aggregates the results into the same daily report. This avoids one large daily-batch request timing out and lets the run continue if a single match fails. DDSS Responses requests use reasoning effort `high`.
+
 Prompt templates are centralized in `worldcup_prediction/prompts.py`.
 
 ## Tests

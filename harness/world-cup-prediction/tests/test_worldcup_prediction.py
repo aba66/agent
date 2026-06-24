@@ -9,7 +9,7 @@ from pathlib import Path
 from worldcup_prediction.data_sources import SampleDataSource
 from worldcup_prediction.engine import run_predict, run_review
 from worldcup_prediction.ledger import LedgerManager
-from worldcup_prediction.providers import DEFAULT_USER_AGENT, OpenAICompatibleProvider, get_provider
+from worldcup_prediction.providers import DEFAULT_USER_AGENT, OpenAICompatibleProvider, ProviderError, get_provider
 
 
 class WorldCupPredictionTests(unittest.TestCase):
@@ -42,6 +42,81 @@ class WorldCupPredictionTests(unittest.TestCase):
 
             self.assertEqual(len(predictions["predictions"]), len(predictions["matches"]))
             self.assertEqual(len(predictions["role_analyses"]), len(predictions["matches"]) * 4)
+
+    def test_per_match_provider_failure_still_generates_daily_report(self):
+        class FailsFirstMatchProvider:
+            name = "fails-first"
+            supports_daily_batch = False
+
+            def __init__(self):
+                self.calls = 0
+
+            def generate_role_analysis(self, role, match, sources, lessons):
+                self.calls += 1
+                if match.match_id == "sample-01-BRA-CRO":
+                    raise ProviderError("simulated timeout")
+                return type(
+                    "Result",
+                    (),
+                    {
+                        "payload": {
+                            "role": role,
+                            "match_id": match.match_id,
+                            "predicted_outcome": "HOME_WIN",
+                            "conclusion": "ok",
+                            "confidence": "medium",
+                            "key_evidence": ["ok"],
+                            "risks": [],
+                            "citations": [],
+                            "one_line": "ok",
+                        },
+                        "raw_text": "{}",
+                        "parse_error": None,
+                    },
+                )()
+
+            def generate_summary(self, match, role_payloads, sources, lessons):
+                return type(
+                    "Result",
+                    (),
+                    {
+                        "payload": {
+                            "match_id": match.match_id,
+                            "predicted_outcome": "HOME_WIN",
+                            "confidence": "medium",
+                            "key_evidence": ["ok"],
+                            "max_risk": "none",
+                            "role_summaries": {"data_analyst": "ok"},
+                            "agreements": ["ok"],
+                            "conflicts": [],
+                            "decision": "ok",
+                            "citations": [],
+                        },
+                        "raw_text": "{}",
+                        "parse_error": None,
+                    },
+                )()
+
+        from worldcup_prediction import engine
+
+        original_get_provider = engine.get_provider
+        try:
+            engine.get_provider = lambda _name: FailsFirstMatchProvider()
+            with tempfile.TemporaryDirectory() as tmp:
+                run_dir = run_predict(
+                    date="2026-06-24",
+                    source="sample",
+                    timezone_name="Asia/Shanghai",
+                    llm_provider="auto",
+                    project_root=Path(tmp),
+                )
+                predictions = json.loads((run_dir / "predictions.json").read_text(encoding="utf-8"))
+                self.assertEqual(len(predictions["matches"]), 3)
+                self.assertEqual(len(predictions["predictions"]), 3)
+                self.assertEqual(predictions["predictions"][0]["parse_error"], "simulated timeout")
+                self.assertTrue((run_dir / "daily_report.md").exists())
+        finally:
+            engine.get_provider = original_get_provider
 
     def test_review_computes_hits_and_misses(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -159,6 +234,48 @@ class WorldCupPredictionTests(unittest.TestCase):
                 self.assertEqual(provider.base_url, "https://code.ddsst.online/v1")
                 self.assertEqual(provider.wire_api, "responses")
                 self.assertEqual(provider.user_agent, "file-agent/1.0")
+                self.assertEqual(provider.reasoning_effort, "high")
+                self.assertFalse(provider.supports_daily_batch)
+            finally:
+                os.environ.clear()
+                os.environ.update(original_env)
+
+    def test_responses_request_includes_reasoning_effort_when_configured(self):
+        provider = OpenAICompatibleProvider(
+            api_key="test-key",
+            model="gpt-5.5",
+            base_url="https://code.ddsst.online/v1",
+            wire_api="responses",
+            reasoning_effort="high",
+        )
+
+        body = provider._responses_body("Return {}")
+
+        self.assertEqual(body["reasoning"], {"effort": "high"})
+
+    def test_ddss_reasoning_effort_is_fixed_to_high(self):
+        original_env = os.environ.copy()
+        with tempfile.TemporaryDirectory() as tmp:
+            config_path = Path(tmp) / "ddss.env"
+            config_path.write_text(
+                "\n".join(
+                    [
+                        "DDSS_API_KEY=file-key",
+                        "WCP_OPENAI_MODEL=gpt-5.5",
+                        "WCP_OPENAI_BASE_URL=https://code.ddsst.online/v1",
+                        "WCP_OPENAI_WIRE_API=responses",
+                        "WCP_OPENAI_REASONING_EFFORT=ultra",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            try:
+                os.environ.clear()
+                os.environ["WCP_CONFIG_ENV_PATH"] = str(config_path)
+
+                provider = get_provider("ddss")
+
+                self.assertEqual(provider.reasoning_effort, "high")
             finally:
                 os.environ.clear()
                 os.environ.update(original_env)
